@@ -1,0 +1,44 @@
+# Ignore build output directories
+/Debug/
+/Release/
+
+# Ignore CubeMX generated files (build artifacts)
+*.bin
+*.hex
+*.elf
+*.map
+*.lst
+*.axf
+
+# Ignore STM32CubeMX configuration files
+.mxproject
+.cproject
+.loadpath
+.settings/
+
+# Ignore backup and temporary files
+*~
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore object files and compiler cache
+*.o
+*.d
+*.a
+*.lib
+*.dep
+*.obj
+*.dwo
+*.out
+
+# Ignore directories created by STM32CubeIDE for caches or workspace settings
+.ipch/
+.vscode/
+metadata/
+*.launch
+
+# Ignore Makefile auto-generated artifacts (if applicable)
+Makefile
+makefile
