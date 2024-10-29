@@ -105,11 +105,11 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 		if(check_buttons_flag) {
-			check_button_states();
 			check_buttons_flag = 0;
+			check_button_states();
 		}
 
-		while(btn_event_num()) {
+		if(btn_event_num()) {
 			if(btn_event_num() >> 0 & 1) {
 				btn_clear_event(0);
 				button_a_presses++;
@@ -126,10 +126,7 @@ int main(void)
 				btn_clear_event(3);
 				button_d_presses++;
 			}
-
 		}
-
-
 	}
   /* USER CODE END 3 */
 }
@@ -173,19 +170,10 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	//HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-}
-
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	//check_button_states();
-	check_buttons_flag = 1;
-
-	HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 1);
-	HAL_GPIO_WritePin(TEST_GPIO_Port, TEST_Pin, 0);
-	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+	//check_button_states();	//longer code not advised inside interrupt
+	check_buttons_flag = 1;		//set flag and resolve in main
 }
 /* USER CODE END 4 */
 
