@@ -4,13 +4,11 @@
  *  Created on: Oct 9, 2024
  *      Author: Juliano
  */
-
 #include <Buttons.h>
 #include <Buttons_config.h>
 #include <stdlib.h>
 
 uint8_t** button_state;
-//uint8_t number_of_buttons;
 uint8_t btn_ack = 0;
 uint8_t btn_event = 0;
 uint8_t btn_check_index = 0;
@@ -30,7 +28,7 @@ uint16_t* btn_pin;
 #error Ammount of OFF states, exceedes NUM_OF_READS array
 #endif
 
-//returns for how many ms button was pressed
+
 static uint8_t ammount_of_on_states(uint8_t btn_num) {
 	uint8_t result = 0;
 	for(int i = 0; i < NUM_OF_READS; i++) {
