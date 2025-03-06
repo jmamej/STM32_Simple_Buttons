@@ -9,10 +9,11 @@
 #define BUTTONS_BUTTONS_CONFIG_H_
 
 #define NUM_OF_BUTTONS	4		//number of used buttons
-#define IDLE_HIGH				//comment if release state is low
-#define NUM_OF_READS	12		//debounce time / how many ms does it take to determine button press
-#define BTN_ON_ACK		10		//keep lower than NUM_OF_READS
-#define BTN_OFF_ACK		10		//keep lower than NUM_OF_READS
-//#define ON_RELEASE			//uncomment for button press being counted on button release
+#define IDLE_HIGH				//button with pull-up resistor
+//#define ON_RELEASE			//count press on button release
+
+#define BTN_COUNTER_MAX 3
+#define BTN_PRESS_ACK	2
+#define BTN_RELEASE_ACK	0
 
 #endif /* BUTTONS_BUTTONS_CONFIG_H_ */

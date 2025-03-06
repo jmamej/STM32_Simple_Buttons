@@ -14,9 +14,9 @@
 #define MAX_BUTTON_NUMBER	8
 #define MIN_BUTTON_NUMBER	1
 
-int8_t btn_init(void);
-void check_button_states(void);
+void btn_init(void);
+void btn_update(void);
 uint8_t btn_event_num(void);
-uint8_t btn_clear_event(uint8_t event_num);
+uint8_t btn_event_clear(uint8_t event_num);
 
 #endif /* BUTTONS_BUTTONS_H_ */

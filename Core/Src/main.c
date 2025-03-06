@@ -45,7 +45,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t check_buttons_flag;
 int button_a_presses, button_b_presses, button_c_presses, button_d_presses;
 /* USER CODE END PV */
 
@@ -103,12 +102,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-		if(check_buttons_flag) {
-			check_buttons_flag = 0;
-			check_button_states();
-		}
-
 		if(btn_event_num()) {
 			if(btn_event_num() >> 0 & 1) {
 				btn_clear_event(0);
@@ -172,8 +165,7 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	//check_button_states();	//longer code not advised inside interrupt
-	check_buttons_flag = 1;		//set flag and resolve in main
+  btn_update();
 }
 /* USER CODE END 4 */
 
